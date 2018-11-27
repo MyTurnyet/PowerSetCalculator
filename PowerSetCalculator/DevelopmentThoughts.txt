@@ -1,0 +1,14 @@
+PowerSetCalculator Development Thoughts
+
+My programming style has been moving toward a microObjects like practice.  Each class does one job and only one job.
+Classes are small and immutable.  There are no getters or setters.  If-statements are only for guard clauses.
+
+Read more about it here: https://quinngil.com/uobjects/
+
+While I am still working on the practice, I have found that it has cause my programming to move a lot closer to true
+OO design and makes the code more maintainable and simpler to write and understand.  It is still a practice for me.
+
+As I start the project, my initial thought is to have a file-reader class, a calculator and the console class.
+I'm sure that there will be a few more to come out of this direction, mostly helper classes.
+
+The first focus will be on creating the Calculator class.  
