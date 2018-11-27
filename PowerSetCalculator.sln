@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerSetCalculator", "PowerSetCalculator\PowerSetCalculator.csproj", "{34E974BA-2DD5-4825-9999-8DA844704792}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerSetCalculatorTests", "PowerSetCalculatorTests\PowerSetCalculatorTests.csproj", "{F90830CF-3E2E-4690-A801-94414E0DDFD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34E974BA-2DD5-4825-9999-8DA844704792}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34E974BA-2DD5-4825-9999-8DA844704792}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34E974BA-2DD5-4825-9999-8DA844704792}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34E974BA-2DD5-4825-9999-8DA844704792}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F90830CF-3E2E-4690-A801-94414E0DDFD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F90830CF-3E2E-4690-A801-94414E0DDFD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F90830CF-3E2E-4690-A801-94414E0DDFD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F90830CF-3E2E-4690-A801-94414E0DDFD1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -12,7 +12,7 @@ namespace PowerSetCalculatorTests
         {
             //assign
             
-            //act
+            //act    
 
             //assert
 
