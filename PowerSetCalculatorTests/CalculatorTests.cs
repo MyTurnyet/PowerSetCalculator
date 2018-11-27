@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PowerSetCalculator;
@@ -9,7 +10,7 @@ namespace PowerSetCalculatorTests
     {
 
         [TestMethod, TestCategory("Unit")]
-        public void ShouldTakeArrayOfIntegers()
+        public void ShouldReturnSetsForSingleLetter_a()
         {
             //assign
             Calculator calculator = new Calculator(new []{"a"});
@@ -22,6 +23,18 @@ namespace PowerSetCalculatorTests
             output.Should().Be("{},{a}");
 
         }
+
+        [TestMethod, TestCategory("Unit")]
+        public void ShouldCreatePowerSet_a()
+        {
+            //assign
+            Calculator calculator = new Calculator(new[] {"a"});
+            PowerSet emptyPowerSet = new PowerSet("");
+            //act
+
+            //assert
+        }
+
     }
 
     public class FakeConsoleWrapper : IConsoleWrapper

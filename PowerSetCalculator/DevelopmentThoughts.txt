@@ -14,4 +14,5 @@ I'm sure that there will be a few more to come out of this direction, mostly hel
 The first focus will be on creating the Calculator class.  To write the first test, I wrote a ConsoleWrapper, that will 
 wrap the Console object and allow me to write tests against the STDOUT output.
 
-   
+If I create a PowerSet class, I can just ask it to print itself.  The calculator can hold a list of PowerSets that it
+calculates.    
