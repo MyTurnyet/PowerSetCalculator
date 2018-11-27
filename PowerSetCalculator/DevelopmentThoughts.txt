@@ -11,4 +11,7 @@ OO design and makes the code more maintainable and simpler to write and understa
 As I start the project, my initial thought is to have a file-reader class, a calculator and the console class.
 I'm sure that there will be a few more to come out of this direction, mostly helper classes.
 
-The first focus will be on creating the Calculator class.  
+The first focus will be on creating the Calculator class.  To write the first test, I wrote a ConsoleWrapper, that will 
+wrap the Console object and allow me to write tests against the STDOUT output.
+
+   
