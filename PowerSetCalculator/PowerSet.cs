@@ -1,15 +1,23 @@
+using System;
+using System.Linq;
+
 namespace PowerSetCalculator
 {
     public class PowerSet : IPowerSet
     {
-        public PowerSet(string setVariable)
+        private readonly string[] _setVariables;
+        public PowerSet():this(string.Empty){}
+
+        public PowerSet(string setVariable):this(new []{setVariable}){}
+
+        public PowerSet(string[] setVariables)
         {
-            
+            _setVariables = setVariables;
         }
 
         public string Print()
         {
-            return "{}";
+            return $"{{{ string.Join(",",_setVariables)}}}";
         }
     }
 }
