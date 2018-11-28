@@ -17,10 +17,25 @@ namespace PowerSetCalculatorTests
             FakeConsoleWrapper fakeConsoleWrapper = new FakeConsoleWrapper();
             
             //act        
-            calculator.printPowerSet(fakeConsoleWrapper);
+            calculator.PrintPowerSet(fakeConsoleWrapper);
             //assert
             string output = fakeConsoleWrapper.Output();
             output.Should().Be("{},{a}");
+
+        }
+
+        [TestMethod, TestCategory("Unit")]
+        public void ShouldReturnSetsForSingleLetter_b()
+        {
+            //assign
+            Calculator calculator = new Calculator(new []{"b"});
+            FakeConsoleWrapper fakeConsoleWrapper = new FakeConsoleWrapper();
+            
+            //act        
+            calculator.PrintPowerSet(fakeConsoleWrapper);
+            //assert
+            string output = fakeConsoleWrapper.Output();
+            output.Should().Be("{},{b}");
 
         }
 
@@ -29,10 +44,11 @@ namespace PowerSetCalculatorTests
         {
             //assign
             Calculator calculator = new Calculator(new[] {"a"});
-            PowerSet emptyPowerSet = new PowerSet("");
+            
             //act
-
+            List<IPowerSet> powerSets = calculator.CalculatePowerSets();
             //assert
+            powerSets.Count.Should().Be(2);
         }
 
     }
