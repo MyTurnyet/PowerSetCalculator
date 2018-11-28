@@ -19,17 +19,24 @@ namespace PowerSetCalculator
         {
             List<IPowerSet> powerSets = new List<IPowerSet> {new PowerSet()};
             powerSets.AddRange(_initialSet.Select(letter => new PowerSet(letter)));
-
-            for (int firstLetterIndex = 0; firstLetterIndex < _initialSet.Length; firstLetterIndex++)
+            int length = _initialSet.Length;
+            if (length == 1) return powerSets;
+            if (length == 3)
             {
-                for (int secondLetterIndex = firstLetterIndex + 1;
-                    secondLetterIndex < _initialSet.Length;
-                    secondLetterIndex++)
+                for (int firstLetterIndex = 0; firstLetterIndex < _initialSet.Length; firstLetterIndex++)
                 {
-                    powerSets.Add(new PowerSet(new []{_initialSet[firstLetterIndex], _initialSet[secondLetterIndex]}));
+                    for (int secondLetterIndex = firstLetterIndex + 1;
+                        secondLetterIndex < _initialSet.Length;
+                        secondLetterIndex++)
+                    {
+                        powerSets.Add(
+                            new PowerSet(new[] {_initialSet[firstLetterIndex], _initialSet[secondLetterIndex]}));
+                    }
                 }
             }
 
+            PowerSet allLettersPowerSet = new PowerSet(_initialSet);
+            powerSets.Add(allLettersPowerSet);
             return powerSets;
         }
     }

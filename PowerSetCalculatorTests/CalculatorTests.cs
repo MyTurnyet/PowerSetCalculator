@@ -52,6 +52,19 @@ namespace PowerSetCalculatorTests
             string output = fakeConsoleWrapper.Output();
             output.Should().Be("{},{a},{b},{a,b}");
         }
+        [TestMethod, TestCategory("Unit")]
+        public void ShouldReturnSetsForLetters_abc()
+        {
+            //assign
+            Calculator calculator = new Calculator(new []{"a","b","c"});
+            FakeConsoleWrapper fakeConsoleWrapper = new FakeConsoleWrapper();
+            
+            //act        
+            calculator.PrintPowerSet(fakeConsoleWrapper);
+            //assert
+            string output = fakeConsoleWrapper.Output();
+            output.Should().Be("{},{a},{b},{c},{a,b},{a,c},{b,c},{a,b,c}");
+        }
     }
 
     public class FakeConsoleWrapper : IConsoleWrapper
