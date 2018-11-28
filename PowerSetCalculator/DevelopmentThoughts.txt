@@ -17,4 +17,5 @@ wrap the Console object and allow me to write tests against the STDOUT output.
 If I create a PowerSet class, I can just ask it to print itself.  The calculator can hold a list of PowerSets that it
 calculates.    
 
-Calculating the powersets must ba able to use a recusive call.
+After wrestling with the issue, I did some searching as was able to apply a bit shifting pattern to the calculation
+method.
