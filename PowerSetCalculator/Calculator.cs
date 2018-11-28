@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,22 +15,30 @@ namespace PowerSetCalculator
 
         public void PrintPowerSet(IConsoleWrapper consoleWrapper)
         {
-            string[] strings = CalculatePowerSets(0, new List<IPowerSet>{new PowerSet("")}, new List<string>())
+            string[] strings = CalculatePowerSets()
                 .Select(n => n.Print())
                 .ToArray();
             consoleWrapper.Write(string.Join(",", strings));
         }
 
-        private List<IPowerSet> CalculatePowerSets(int startingIndex, List<IPowerSet> powerSets,
-            List<string> currentLetters)
+        private List<IPowerSet> CalculatePowerSets()
         {
-            for (int currentLetter = startingIndex; currentLetter < _initialSet.Length; currentLetter++)
+            int initialSetLength = _initialSet.Length;
+            int totalNumberOfSets = 1 << initialSetLength;
+            
+            List<IPowerSet> powerSets = new List<IPowerSet>();
+            for (int setMask = 0; setMask < totalNumberOfSets; setMask++)
             {
-                currentLetters.Add(_initialSet[currentLetter]);
-                powerSets.Add(new PowerSet(currentLetters.ToArray()));
-                CalculatePowerSets(currentLetter + 1, powerSets, currentLetters);
+                 List<string> currentLettersInSet = new List<string>();
+                for (int currentIndex = 0; currentIndex < initialSetLength; currentIndex++)
+                {
+                    if ((setMask & (1 << currentIndex)) > 0)
+                    {
+                        currentLettersInSet.Add(_initialSet[currentIndex]);
+                    }
+                }
+                powerSets.Add( new PowerSet(currentLettersInSet.ToArray()));
             }
-
             return powerSets;
         }
     }

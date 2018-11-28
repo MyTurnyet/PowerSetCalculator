@@ -38,46 +38,46 @@ namespace PowerSetCalculatorTests
             output.Should().Be("{},{b}");
 
         }
-//
-//        [TestMethod, TestCategory("Unit")]
-//        public void ShouldReturnSetsForLetters_ab()
-//        {
-//            //assign
-//            Calculator calculator = new Calculator(new []{"a","b"});
-//            FakeConsoleWrapper fakeConsoleWrapper = new FakeConsoleWrapper();
-//            
-//            //act        
-//            calculator.PrintPowerSet(fakeConsoleWrapper);
-//            //assert
-//            string output = fakeConsoleWrapper.Output();
-//            output.Should().Be("{},{a},{b},{a,b}");
-//        }
-//        [TestMethod, TestCategory("Unit")]
-//        public void ShouldReturnSetsForLetters_abc()
-//        {
-//            //assign
-//            Calculator calculator = new Calculator(new []{"a","b","c"});
-//            FakeConsoleWrapper fakeConsoleWrapper = new FakeConsoleWrapper();
-//            
-//            //act        
-//            calculator.PrintPowerSet(fakeConsoleWrapper);
-//            //assert
-//            string output = fakeConsoleWrapper.Output();
-//            output.Should().Be("{},{a},{b},{c},{a,b},{a,c},{b,c},{a,b,c}");
-//        }
-//        [TestMethod, TestCategory("Unit")]
-//        public void ShouldReturnSetsForLetters_abcd()
-//        {
-//            //assign
-//            Calculator calculator = new Calculator(new []{"a","b","c", "d"});
-//            FakeConsoleWrapper fakeConsoleWrapper = new FakeConsoleWrapper();
-//            
-//            //act        
-//            calculator.PrintPowerSet(fakeConsoleWrapper);
-//            //assert
-//            string output = fakeConsoleWrapper.Output();
-//            output.Should().Be("{},{a},{b},{c},{a,b},{a,c},{a,d},{b,c},{b,d},{c,d},{a,b,c},{a,b,c,d}");
-//        }
+
+        [TestMethod, TestCategory("Unit")]
+        public void ShouldReturnSetsForLetters_ab()
+        {
+            //assign
+            Calculator calculator = new Calculator(new []{"a","b"});
+            FakeConsoleWrapper fakeConsoleWrapper = new FakeConsoleWrapper();
+            
+            //act        
+            calculator.PrintPowerSet(fakeConsoleWrapper);
+            //assert
+            string output = fakeConsoleWrapper.Output();
+            output.Should().Be("{},{a},{b},{a,b}");
+        }
+        [TestMethod, TestCategory("Unit")]
+        public void ShouldReturnSetsForLetters_abc()
+        {
+            //assign
+            Calculator calculator = new Calculator(new []{"a","b","c"});
+            FakeConsoleWrapper fakeConsoleWrapper = new FakeConsoleWrapper();
+            
+            //act        
+            calculator.PrintPowerSet(fakeConsoleWrapper);
+            //assert
+            string output = fakeConsoleWrapper.Output();
+            output.Should().Be("{},{a},{b},{a,b},{c},{a,c},{b,c},{a,b,c}");
+        }
+        [TestMethod, TestCategory("Unit")]
+        public void ShouldReturnSetsForLetters_abcd()
+        {
+            //assign
+            Calculator calculator = new Calculator(new []{"a","b","c", "d"});
+            FakeConsoleWrapper fakeConsoleWrapper = new FakeConsoleWrapper();
+            
+            //act        
+            calculator.PrintPowerSet(fakeConsoleWrapper);
+            //assert
+            string output = fakeConsoleWrapper.Output();
+            output.Should().Be("{},{a},{b},{a,b},{c},{a,c},{b,c},{a,b,c},{d},{a,d},{b,d},{a,b,d},{c,d},{a,c,d},{b,c,d},{a,b,c,d}");
+        }
     }
 
     public class FakeConsoleWrapper : IConsoleWrapper
