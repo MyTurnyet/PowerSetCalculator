@@ -1,6 +1,8 @@
+using System;
+
 namespace PowerSetCalculator
 {
-    public interface IPowerSet
+    public interface IPowerSet: IComparable<IPowerSet>
     {
         string Print();
     }

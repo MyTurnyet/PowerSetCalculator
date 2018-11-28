@@ -19,5 +19,19 @@ namespace PowerSetCalculator
         {
             return $"{{{ string.Join(",",_setVariables)}}}";
         }
+
+        
+        public int CompareTo(IPowerSet other)
+        {
+            
+            for (int currentIndex = 0; currentIndex < _setVariables.Length; currentIndex++)
+            {
+                int compareToNumber = string.Compare( _setVariables[currentIndex], ((PowerSet)other)._setVariables[currentIndex]);
+                if(compareToNumber == 0) continue;
+                return compareToNumber;
+            }
+
+            return 0;
+        }
     }
 }
