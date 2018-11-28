@@ -12,19 +12,24 @@ namespace PowerSetCalculator
             _initialSet = initialSet;
         }
 
-        public void PrintPowerSet(IConsoleWrapper consoleWrapper)
-        {
-            string output = string.Join(",", CalculatePowerSets().Select(n=>n.Print()).ToArray());
-            consoleWrapper.Write(output);
-        }
+        public void PrintPowerSet(IConsoleWrapper consoleWrapper) =>
+            consoleWrapper.Write(string.Join(",", CalculatePowerSets().Select(n => n.Print()).ToArray()));
 
-        public List<IPowerSet> CalculatePowerSets()
+        private IEnumerable<IPowerSet> CalculatePowerSets()
         {
-            List<IPowerSet> powerSets = new List<IPowerSet>(){new PowerSet()};
-            foreach (string letter in _initialSet)
+            List<IPowerSet> powerSets = new List<IPowerSet> {new PowerSet()};
+            powerSets.AddRange(_initialSet.Select(letter => new PowerSet(letter)));
+
+            for (int firstLetterIndex = 0; firstLetterIndex < _initialSet.Length; firstLetterIndex++)
             {
-                powerSets.Add(new PowerSet(letter));
+                for (int secondLetterIndex = firstLetterIndex + 1;
+                    secondLetterIndex < _initialSet.Length;
+                    secondLetterIndex++)
+                {
+                    powerSets.Add(new PowerSet(new []{_initialSet[firstLetterIndex], _initialSet[secondLetterIndex]}));
+                }
             }
+
             return powerSets;
         }
     }

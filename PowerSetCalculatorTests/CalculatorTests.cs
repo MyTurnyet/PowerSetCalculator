@@ -40,17 +40,18 @@ namespace PowerSetCalculatorTests
         }
 
         [TestMethod, TestCategory("Unit")]
-        public void ShouldCreatePowerSet_a()
+        public void ShouldReturnSetsForLetters_ab()
         {
             //assign
-            Calculator calculator = new Calculator(new[] {"a"});
+            Calculator calculator = new Calculator(new []{"a","b"});
+            FakeConsoleWrapper fakeConsoleWrapper = new FakeConsoleWrapper();
             
-            //act
-            List<IPowerSet> powerSets = calculator.CalculatePowerSets();
+            //act        
+            calculator.PrintPowerSet(fakeConsoleWrapper);
             //assert
-            powerSets.Count.Should().Be(2);
+            string output = fakeConsoleWrapper.Output();
+            output.Should().Be("{},{a},{b},{a,b}");
         }
-
     }
 
     public class FakeConsoleWrapper : IConsoleWrapper
