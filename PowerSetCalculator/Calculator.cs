@@ -12,31 +12,24 @@ namespace PowerSetCalculator
             _initialSet = initialSet;
         }
 
-        public void PrintPowerSet(IConsoleWrapper consoleWrapper) =>
-            consoleWrapper.Write(string.Join(",", CalculatePowerSets().Select(n => n.Print()).ToArray()));
-
-        private IEnumerable<IPowerSet> CalculatePowerSets()
+        public void PrintPowerSet(IConsoleWrapper consoleWrapper)
         {
-            List<IPowerSet> powerSets = new List<IPowerSet> {new PowerSet()};
-            powerSets.AddRange(_initialSet.Select(letter => new PowerSet(letter)));
-            int length = _initialSet.Length;
-            if (length == 1) return powerSets;
-            if (length == 3)
+            string[] strings = CalculatePowerSets(0, new List<IPowerSet>{new PowerSet("")}, new List<string>())
+                .Select(n => n.Print())
+                .ToArray();
+            consoleWrapper.Write(string.Join(",", strings));
+        }
+
+        private List<IPowerSet> CalculatePowerSets(int startingIndex, List<IPowerSet> powerSets,
+            List<string> currentLetters)
+        {
+            for (int currentLetter = startingIndex; currentLetter < _initialSet.Length; currentLetter++)
             {
-                for (int firstLetterIndex = 0; firstLetterIndex < _initialSet.Length; firstLetterIndex++)
-                {
-                    for (int secondLetterIndex = firstLetterIndex + 1;
-                        secondLetterIndex < _initialSet.Length;
-                        secondLetterIndex++)
-                    {
-                        powerSets.Add(
-                            new PowerSet(new[] {_initialSet[firstLetterIndex], _initialSet[secondLetterIndex]}));
-                    }
-                }
+                currentLetters.Add(_initialSet[currentLetter]);
+                powerSets.Add(new PowerSet(currentLetters.ToArray()));
+                CalculatePowerSets(currentLetter + 1, powerSets, currentLetters);
             }
 
-            PowerSet allLettersPowerSet = new PowerSet(_initialSet);
-            powerSets.Add(allLettersPowerSet);
             return powerSets;
         }
     }
