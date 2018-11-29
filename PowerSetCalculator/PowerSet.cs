@@ -15,17 +15,14 @@ namespace PowerSetCalculator
             _setVariables = setVariables;
         }
 
-        public string Print()
-        {
-            return $"{{{ string.Join(",",_setVariables)}}}";
-        }
+        public string Print() => $"{{{ string.Join(",",_setVariables)}}}";
 
-        
         public int CompareTo(IPowerSet other)
         {
             string[] otherSetVariables = ((PowerSet) other)._setVariables;
             int otherSetLength = otherSetVariables.Length;
             int setLength = _setVariables.Length;
+        
             return setLength <= otherSetLength
                 ? setLength >= otherSetLength
                     ? _setVariables

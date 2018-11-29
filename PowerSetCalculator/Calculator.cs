@@ -29,13 +29,11 @@ namespace PowerSetCalculator
             List<IPowerSet> powerSets = new List<IPowerSet>();
             for (int setMask = 0; setMask < totalNumberOfSets; setMask++)
             {
-                 List<string> currentLettersInSet = new List<string>();
+                List<string> currentLettersInSet = new List<string>();
                 for (int currentIndex = 0; currentIndex < initialSetLength; currentIndex++)
                 {
-                    if ((setMask & (1 << currentIndex)) > 0)
-                    {
-                        currentLettersInSet.Add(_initialSet[currentIndex]);
-                    }
+                    if ((setMask & (1 << currentIndex)) <= 0) continue;
+                    currentLettersInSet.Add(_initialSet[currentIndex]);
                 }
                 powerSets.Add( new PowerSet(currentLettersInSet.ToArray()));
             }

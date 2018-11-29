@@ -18,4 +18,5 @@ If I create a PowerSet class, I can just ask it to print itself.  The calculator
 calculates.    
 
 After wrestling with the issue, I did some searching as was able to apply a bit shifting pattern to the calculation
-method.
+method. Also the list of PowerSets needed to be sorted to match the expected output file.
+

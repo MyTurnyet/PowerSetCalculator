@@ -8,70 +8,69 @@ namespace PowerSetCalculatorTests
     [TestClass]
     public class CalculatorTests
     {
-
         [TestMethod, TestCategory("Unit")]
         public void ShouldReturnSetsForSingleLetter_a()
         {
             //assign
-            Calculator calculator = new Calculator(new []{"a"});
+            Calculator calculator = new Calculator(new[] {"a"});
             FakeConsoleWrapper fakeConsoleWrapper = new FakeConsoleWrapper();
-            
+
             //act        
             calculator.PrintPowerSet(fakeConsoleWrapper);
             //assert
             string output = fakeConsoleWrapper.Output();
             output.Should().Be("{},{a}");
-
         }
 
         [TestMethod, TestCategory("Unit")]
         public void ShouldReturnSetsForSingleLetter_b()
         {
             //assign
-            Calculator calculator = new Calculator(new []{"b"});
+            Calculator calculator = new Calculator(new[] {"b"});
             FakeConsoleWrapper fakeConsoleWrapper = new FakeConsoleWrapper();
-            
+
             //act        
             calculator.PrintPowerSet(fakeConsoleWrapper);
             //assert
             string output = fakeConsoleWrapper.Output();
             output.Should().Be("{},{b}");
-
         }
 
         [TestMethod, TestCategory("Unit")]
         public void ShouldReturnSetsForLetters_ab()
         {
             //assign
-            Calculator calculator = new Calculator(new []{"a","b"});
+            Calculator calculator = new Calculator(new[] {"a", "b"});
             FakeConsoleWrapper fakeConsoleWrapper = new FakeConsoleWrapper();
-            
+
             //act        
             calculator.PrintPowerSet(fakeConsoleWrapper);
             //assert
             string output = fakeConsoleWrapper.Output();
             output.Should().Be("{},{a},{b},{a,b}");
         }
+
         [TestMethod, TestCategory("Unit")]
         public void ShouldReturnSetsForLetters_abc()
         {
             //assign
-            Calculator calculator = new Calculator(new []{"a","b","c"});
+            Calculator calculator = new Calculator(new[] {"a", "b", "c"});
             FakeConsoleWrapper fakeConsoleWrapper = new FakeConsoleWrapper();
-            
+
             //act        
             calculator.PrintPowerSet(fakeConsoleWrapper);
             //assert
             string output = fakeConsoleWrapper.Output();
             output.Should().Be("{},{a},{b},{c},{a,b},{a,c},{b,c},{a,b,c}");
         }
+
         [TestMethod, TestCategory("Unit")]
         public void ShouldReturnSetsForLetters_abcd()
         {
             //assign
-            Calculator calculator = new Calculator(new []{"a","b","c", "d"});
+            Calculator calculator = new Calculator(new[] {"a", "b", "c", "d"});
             FakeConsoleWrapper fakeConsoleWrapper = new FakeConsoleWrapper();
-            
+
             //act        
             calculator.PrintPowerSet(fakeConsoleWrapper);
             //assert
