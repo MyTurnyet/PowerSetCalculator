@@ -17,4 +17,10 @@
         <ProjectReference Include="..\PowerSetCalculator\PowerSetCalculator.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <None Update="powerset-input.txt">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
 </Project>
