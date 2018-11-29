@@ -7,18 +7,24 @@ namespace PowerSetCalculator
     public class Calculator
     {
         private readonly string[] _initialSet;
+        private readonly IConsoleWrapper _consoleWrapper;
 
-        public Calculator(string[] initialSet)
+        public Calculator(string[] initialSet):this(initialSet, new ConsoleWrapper()){}
+
+        public Calculator(string[] initialSet,IConsoleWrapper consoleWrapper)
         {
             _initialSet = initialSet;
+            _consoleWrapper = consoleWrapper;
         }
 
-        public void PrintPowerSet(IConsoleWrapper consoleWrapper)
+        
+
+        public void PrintPowerSet()
         {
             string[] strings = CalculatePowerSets()
                 .Select(n => n.Print())
                 .ToArray();
-            consoleWrapper.Write(string.Join(",", strings));
+            _consoleWrapper.Write(string.Join(",", strings));
         }
 
         private List<IPowerSet> CalculatePowerSets()

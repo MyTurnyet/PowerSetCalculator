@@ -3,7 +3,7 @@ using System.IO;
 
 namespace PowerSetCalculator
 {
-    public class FileReader
+    public class FileReader:IFileReader
     {
         private readonly IFileInfoWrapper _fileInfo;
 

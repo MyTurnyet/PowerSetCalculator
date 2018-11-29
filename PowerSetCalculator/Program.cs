@@ -6,7 +6,11 @@ namespace PowerSetCalculator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            if (args == null) return;
+            string filePath = args[0];
+            IFileReader fileReader = new FileReader(filePath);
+            Calculator calculator = new Calculator(fileReader.GetArrayFromFile());
+            calculator.PrintPowerSet();
         }
     }
 }

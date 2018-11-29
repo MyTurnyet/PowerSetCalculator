@@ -16,7 +16,7 @@ namespace PowerSetCalculatorTests
         {
             //assign
             IFileInfoWrapper fakeFileInfo = new FakeFileInfo("sometext.txt", true);
-            FileReader fileReader = new FileReader(fakeFileInfo);
+            IFileReader fileReader = new FileReader(fakeFileInfo);
             //act
             bool isValid = fileReader.IsValidPath();
             //assert
@@ -28,7 +28,7 @@ namespace PowerSetCalculatorTests
         {
             //assign
             IFileInfoWrapper fakeFileInfo = new FakeFileInfo("sometext.txt", false);
-            FileReader fileReader = new FileReader(fakeFileInfo);
+            IFileReader fileReader = new FileReader(fakeFileInfo);
             //act
             bool isValid = fileReader.IsValidPath();
             //assert
@@ -40,7 +40,7 @@ namespace PowerSetCalculatorTests
         {
             //assign
             IFileInfoWrapper fileInfo = new FakeFileInfo("a,b,c,d");
-            FileReader fileReader = new FileReader(fileInfo);
+            IFileReader fileReader = new FileReader(fileInfo);
             //act
             string[] fileContents = fileReader.GetArrayFromFile();
             //assert
@@ -51,7 +51,7 @@ namespace PowerSetCalculatorTests
         {
             //assign
             IFileInfoWrapper fileInfo = new FakeFileInfo("a,b,c,d",false);
-            FileReader fileReader = new FileReader(fileInfo);
+            IFileReader fileReader = new FileReader(fileInfo);
             //act
             string[] fileContents = fileReader.GetArrayFromFile();
             //assert
@@ -62,7 +62,7 @@ namespace PowerSetCalculatorTests
         {
             //assign
             IFileInfoWrapper fileInfo = new FakeFileInfo("b,c,d");
-            FileReader fileReader = new FileReader(fileInfo);
+            IFileReader fileReader = new FileReader(fileInfo);
             //act
             string[] fileContents = fileReader.GetArrayFromFile();
             //assert
@@ -74,7 +74,7 @@ namespace PowerSetCalculatorTests
         {
             //assign
             string solutionDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            FileReader fileReader = new FileReader($"{solutionDir}\\powerset-input.txt");
+            IFileReader fileReader = new FileReader($"{solutionDir}\\powerset-input.txt");
             //act
             bool isValid = fileReader.IsValidPath();
             //assert
@@ -86,7 +86,7 @@ namespace PowerSetCalculatorTests
         {
             //assign
             string solutionDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            FileReader fileReader = new FileReader($"{solutionDir}\\blah.txt");
+            IFileReader fileReader = new FileReader($"{solutionDir}\\blah.txt");
             //act
             bool isValid = fileReader.IsValidPath();
             //assert
@@ -98,7 +98,7 @@ namespace PowerSetCalculatorTests
         {
             //assign
             string solutionDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            FileReader fileReader = new FileReader($"{solutionDir}\\powerset-input.txt");
+            IFileReader fileReader = new FileReader($"{solutionDir}\\powerset-input.txt");
             //act
             string[] fileContents = fileReader.GetArrayFromFile();
             //assert

@@ -20,3 +20,5 @@ calculates.
 After wrestling with the issue, I did some searching as was able to apply a bit shifting pattern to the calculation
 method. Also the list of PowerSets needed to be sorted to match the expected output file.
 
+I added the FileInfoWrapper to allow testing of the FileReader.  The FileReader will accept the first argument as the 
+file path to read from.
