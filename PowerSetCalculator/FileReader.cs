@@ -1,14 +1,19 @@
+using System.IO;
+
 namespace PowerSetCalculator
 {
     public class FileReader
     {
-        public FileReader(string filePath)
+        private readonly FileInfo _inputFile;
+
+        public FileReader(string filePath) : this(new FileInfo(filePath))
         {
         }
 
-        public bool isValidPath()
+        private FileReader(FileInfo inputFile)
         {
-            return true;
+            _inputFile = inputFile;
         }
+        public bool IsValidPath() => _inputFile.Exists;
     }
 }
