@@ -54,9 +54,10 @@ namespace PowerSetCalculatorTests
             int compareTo = powerSet1.CompareTo(powerSet2);
             //assert
             compareTo.Should().Be(0);
-        }   
+        }
+        
         [TestMethod, TestCategory("Unit")]
-        public void ShouldBeComparable_return1()
+        public void ShouldBeComparable_return_negative1()
         {
             //assign
             IPowerSet powerSet1 = new PowerSet(new []{"a"});
@@ -67,6 +68,19 @@ namespace PowerSetCalculatorTests
             int compareTo = powerSet1.CompareTo(powerSet2);
             //assert
             compareTo.Should().Be(-1);
+        } 
+        [TestMethod, TestCategory("Unit")]
+        public void ShouldBeComparable_return1()
+        {
+            //assign
+            IPowerSet powerSet1 = new PowerSet(new []{"b"});
+            IPowerSet powerSet2 = new PowerSet(new []{"a"});
+            List<IPowerSet> powerSets = new List<IPowerSet>(){powerSet1,powerSet2};
+            
+            //act
+            int compareTo = powerSet1.CompareTo(powerSet2);
+            //assert
+            compareTo.Should().Be(1);
         }
     }
 }

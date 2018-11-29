@@ -23,15 +23,17 @@ namespace PowerSetCalculator
         
         public int CompareTo(IPowerSet other)
         {
-            
-            for (int currentIndex = 0; currentIndex < _setVariables.Length; currentIndex++)
-            {
-                int compareToNumber = string.Compare( _setVariables[currentIndex], ((PowerSet)other)._setVariables[currentIndex]);
-                if(compareToNumber == 0) continue;
-                return compareToNumber;
-            }
-
-            return 0;
+            string[] otherSetVariables = ((PowerSet) other)._setVariables;
+            int otherSetLength = otherSetVariables.Length;
+            int setLength = _setVariables.Length;
+            return setLength <= otherSetLength
+                ? setLength >= otherSetLength
+                    ? _setVariables
+                        .Select((t, currentIndex) =>
+                            String.CompareOrdinal(t, otherSetVariables[currentIndex]))
+                        .FirstOrDefault(compareToNumber => compareToNumber != 0)
+                    : -1
+                : 1;
         }
     }
 }

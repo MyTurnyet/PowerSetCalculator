@@ -63,7 +63,7 @@ namespace PowerSetCalculatorTests
             calculator.PrintPowerSet(fakeConsoleWrapper);
             //assert
             string output = fakeConsoleWrapper.Output();
-            output.Should().Be("{},{a},{b},{a,b},{c},{a,c},{b,c},{a,b,c}");
+            output.Should().Be("{},{a},{b},{c},{a,b},{a,c},{b,c},{a,b,c}");
         }
         [TestMethod, TestCategory("Unit")]
         public void ShouldReturnSetsForLetters_abcd()
@@ -76,7 +76,8 @@ namespace PowerSetCalculatorTests
             calculator.PrintPowerSet(fakeConsoleWrapper);
             //assert
             string output = fakeConsoleWrapper.Output();
-            output.Should().Be("{},{a},{b},{a,b},{c},{a,c},{b,c},{a,b,c},{d},{a,d},{b,d},{a,b,d},{c,d},{a,c,d},{b,c,d},{a,b,c,d}");
+            output.Should().Be("{},{a},{b},{c},{d},{a,b},{a,c},{a,d},{b,c},{b,d},{c,d},{a,b,c}," +
+                               "{a,b,d},{a,c,d},{b,c,d},{a,b,c,d}");
         }
     }
 

@@ -39,6 +39,7 @@ namespace PowerSetCalculator
                 }
                 powerSets.Add( new PowerSet(currentLettersInSet.ToArray()));
             }
+            powerSets.Sort();
             return powerSets;
         }
     }
