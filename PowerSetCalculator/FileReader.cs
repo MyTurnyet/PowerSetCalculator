@@ -1,24 +1,23 @@
+using System;
 using System.IO;
 
 namespace PowerSetCalculator
 {
     public class FileReader
     {
-        private readonly FileInfo _inputFile;
+        private readonly IFileInfoWrapper _fileInfo;
 
-        public FileReader(string filePath) : this(new FileInfo(filePath))
+        public FileReader(string filePath) : this(new FileInfoWrapper(filePath)){}
+
+        public FileReader(IFileInfoWrapper fileInfo)
         {
+            _fileInfo = fileInfo;
         }
 
-        private FileReader(FileInfo inputFile)
-        {
-            _inputFile = inputFile;
-        }
-        public bool IsValidPath() => _inputFile.Exists;
+        public bool IsValidPath() => _fileInfo.Exists();
 
-        public string[] GetArrayFromFile()
-        {
-            return new[] {"a", "b", "c", "d"};
-        }
+        public string[] GetArrayFromFile() => !IsValidPath() 
+            ? new string[]{} 
+            : _fileInfo.ReadFile().Replace("\n","").Split(",", StringSplitOptions.RemoveEmptyEntries);
     }
 }
