@@ -34,6 +34,17 @@ namespace PowerSetCalculatorTests
             //assert
             isValid.Should().BeFalse();
         }
-
+        
+        [TestMethod, TestCategory("Unit")]
+        public void ShouldReturnArrayOfLetters()
+        {
+            //assign
+            string solutionDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
+            FileReader fileReader = new FileReader($"{solutionDir}\\powerset-input.txt");
+            //act
+            string[] fileContents = fileReader.GetArrayFromFile();
+            //assert
+            fileContents.Should().BeEquivalentTo("a", "b", "c", "d");
+        }
     }
 }

@@ -15,5 +15,10 @@ namespace PowerSetCalculator
             _inputFile = inputFile;
         }
         public bool IsValidPath() => _inputFile.Exists;
+
+        public string[] GetArrayFromFile()
+        {
+            return new[] {"a", "b", "c", "d"};
+        }
     }
 }
